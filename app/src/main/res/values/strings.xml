@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quản Lý Sách</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="QuanLyPhieuMuon">Quản Lý Phiếu Mượn</string>
+    <string name="QuanLyLoaiSach">Quản Lý Loại Sách</string>
+    <string name="QuanLySach">Quản Lý Sách</string>
+    <string name="QuanLyThanhVien">Quản Lý Thành Viên </string>
+
+    <string name="SachMuonNhieuNhat">10 Sách Mượn Nhiều Nhất </string>
+    <string name="DoanhThu">Doanh Thu</string>
+
+    <string name="DoiMatKhau">Đổi Mật Khẩu</string>
+    <string name="DangXuat">Đăng Xuất</string>
+</resources>

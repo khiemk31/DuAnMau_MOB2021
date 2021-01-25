@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/quanlyphieumuon"
+            android:icon="@drawable/ic_action_copy"
+            android:title="@string/QuanLyPhieuMuon" />
+        <item
+            android:id="@+id/quanlyloaisach"
+            android:icon="@drawable/ic_action_database"
+            android:title="@string/QuanLyLoaiSach" />
+        <item
+            android:id="@+id/quanlysach"
+            android:icon="@drawable/ic_action_book"
+            android:title="@string/QuanLySach" />
+        <item
+            android:id="@+id/quanlythanhvien"
+            android:icon="@drawable/ic_action_users"
+            android:title="@string/QuanLyThanhVien" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Thống Kê"
+            android:icon="@drawable/ic_action_line_chart">
+            <menu>
+                <item
+                    android:id="@+id/sachmuonnhieunhat"
+                    android:icon="@drawable/ic_action_like"
+                    android:title="@string/SachMuonNhieuNhat" />
+                <item
+                    android:id="@+id/doanhthu"
+                    android:icon="@drawable/ic_action_bargraph"
+                    android:title="@string/DoanhThu" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_action_user"
+            android:title="Người Dùng">
+            <menu>
+                <item
+                    android:id="@+id/doimatkhau"
+                    android:icon="@drawable/ic_action_key"
+                    android:title="@string/DoiMatKhau" />
+                <item
+                    android:id="@+id/dangxuat"
+                    android:icon="@drawable/ic_action_exit"
+                    android:title="@string/DangXuat" />
+            </menu>
+        </item>
+    </group>
+</menu>

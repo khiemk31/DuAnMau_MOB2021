@@ -4,13 +4,15 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.myapplication.DAO.HoaDonChiTiet_DAO;
 import com.example.myapplication.DAO.HoaDon_DAO;
-import com.example.myapplication.DAO.NguoiDung_DAO;
+import com.example.myapplication.DAO.ThuThu_DAO;
 import com.example.myapplication.DAO.Sach_DAO;
+import com.example.myapplication.DAO.ThanhVien_DAO;
 import com.example.myapplication.DAO.TheLoai_DAO;
 
 public class MySQL extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "dbBookManager";
+    public static final String DATABASE_NAME = "QLTHUVIEN";
     public static final int VERSION = 1;
 
     public MySQL(Context context) {
@@ -19,19 +21,66 @@ public class MySQL extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(NguoiDung_DAO.SQL_NGUOI_DUNG);
-        db.execSQL(TheLoai_DAO.SQL_THE_LOAI);
-        db.execSQL(Sach_DAO.SQL_SACH);
-        db.execSQL(HoaDon_DAO.SQL_HOA_DON);
-//        db.execSQL(HoaDonChiTietDAO.SQL_HOA_DON_CHI_TIET);
+
+        //Tạo Bảng Thủ Thư:
+        String createTableThuThu =
+                "create table ThuThu (" +
+                        "maTT TEXT PRIMARY KEY, " +
+                        "hoTen TEXT NOT NULL, " +
+                        "matKhau TEXT NOT NULL)";
+        db.execSQL(createTableThuThu);
+
+        //Tạo Bảng Thành Viên:
+        String createTableThanhVien =
+                "create table ThanhVien (" +
+                        "maTV INTEGER PRIMARY KEY , " +
+                        "hoTen TEXT NOT NULL, " +
+                        "namSinh TEXT NOT NULL)";
+        db.execSQL(createTableThanhVien);
+
+        //Tạo Bảng Loại Sách:
+        String createTableLoaiSach =
+                "create table LoaiSach (" +
+                        "maLoai INTEGER PRIMARY KEY , " +
+                        "tenLoai TEXT NOT NULL)";
+        db.execSQL(createTableLoaiSach);
+
+        //Tạo Bảng Sách:
+        String createTableSach =
+                "create table Sach (" +
+                        "maSach INTEGER PRIMARY KEY , " +
+                        "tenSach TEXT NOT NULL, " +
+                        "giaThue INTEGER NOT NULL, " +
+                        "maLoai INTEGER REFERENCES LoaiSach(maLoai))";
+        db.execSQL(createTableSach);
+
+        //Tạo Bảng Phiếu Mượn:
+        String createTablePhieuMuon =
+                "create table PhieuMuon (" +
+                        "maPM INTERGER PRIMARY KEY , " +
+                        "maTT TEXT REFERENCES ThuThu(maTT), " +
+                        "maTV INTERGER REFERENCES ThanhVien(maTV), " +
+                        "maSach INTERGER REFERENCES Sach(maSach), " +
+                        "tienThue INTERGER NOT NULL, " +
+                        "ngay DATE NOT NULL ," +
+                        "traSach INTERGER NOT NULL) ";
+        db.execSQL(createTablePhieuMuon);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("Drop table if exists " + NguoiDung_DAO.TABLE_NAME);
-//        db.execSQL("Drop table if exists " + TheLoaiDAO.TABLE_NAME);
-//        db.execSQL("Drop table if exists " + SachDAO.TABLE_NAME);
-//        db.execSQL("Drop table if exists " + HoaDonDAO.TABLE_NAME);
-//        db.execSQL("Drop table if exists " + HoaDonChiTietDAO.TABLE_NAME);
+        String dropTableThuThu ="drop table if exists ThuThu";
+        db.execSQL(dropTableThuThu);
+        String dropTableThanhVien ="drop table if exists ThanhVien";
+        db.execSQL(dropTableThanhVien);
+        String dropTableLoaiSach ="drop table if exists LoaiSach";
+        db.execSQL(dropTableLoaiSach);
+        String dropTableSach ="drop table if exists Sach";
+        db.execSQL(dropTableSach);
+        String dropTablePhieuMuon="drop table if exists PhieuMuon";
+        db.execSQL(dropTablePhieuMuon);
+
+        onCreate(db);
     }
 }

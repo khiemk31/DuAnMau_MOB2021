@@ -9,35 +9,35 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.DAO.NguoiDung_DAO;
-import com.example.myapplication.Object.NguoiDung;
+import com.example.myapplication.DAO.ThuThu_DAO;
+import com.example.myapplication.Object.ThuThu;
 import com.example.myapplication.R;
 
 import java.util.List;
 
 public class NguoiDungAdapter extends BaseAdapter {
-    List<NguoiDung> arrNguoiDung;
+    List<ThuThu> arrThuThu;
     public Activity context;
     public LayoutInflater inflater;
-    NguoiDung_DAO nguoiDung_DAO;
+    ThuThu_DAO thuThu_DAO;
 
-    public NguoiDungAdapter(Activity context, List<NguoiDung> arrayNguoiDung) {
+    public NguoiDungAdapter(Activity context, List<ThuThu> arrayThuThu) {
         super();
         this.context = context;
-        this.arrNguoiDung = arrayNguoiDung;
+        this.arrThuThu = arrayThuThu;
         this.inflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        nguoiDung_DAO = new NguoiDung_DAO(context);
+        thuThu_DAO = new ThuThu_DAO(context);
     }
 
     @Override
     public int getCount() {
-        return arrNguoiDung.size();
+        return arrThuThu.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return arrNguoiDung.get(position);
+        return arrThuThu.get(position);
     }
 
     @Override
@@ -66,15 +66,15 @@ public class NguoiDungAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
 
-                    nguoiDung_DAO.deleteNguoiDungByID(arrNguoiDung.get(position).getUserName());
-                    arrNguoiDung.remove(position);
+                    thuThu_DAO.deleteNguoiDungByID(arrThuThu.get(position).getUserName());
+                    arrThuThu.remove(position);
                     notifyDataSetChanged();
                 }
             });
             convertView.setTag(holder);
         } else
             holder = (ViewHolder) convertView.getTag();
-        NguoiDung _entry = (NguoiDung) arrNguoiDung.get(position);
+        ThuThu _entry = (ThuThu) arrThuThu.get(position);
         if (position % 3 == 0) {
             holder.img.setImageResource(R.drawable.emone);
         } else if (position % 3 == 1) {
@@ -92,8 +92,8 @@ public class NguoiDungAdapter extends BaseAdapter {
         super.notifyDataSetChanged();
     }
 
-    public void changeDataset(List<NguoiDung> items) {
-        this.arrNguoiDung = items;
+    public void changeDataset(List<ThuThu> items) {
+        this.arrThuThu = items;
         notifyDataSetChanged();
     }
 }

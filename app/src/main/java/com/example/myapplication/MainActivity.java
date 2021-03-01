@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nvView);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -72,17 +72,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.quanlyphieumuon) {
+        if (id == R.id.nav_PhieuMuon) {
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
             pager.setAdapter(adapter);
             pager.setCurrentItem(0);
         }
-        if (id == R.id.quanlyloaisach) {
+        if (id == R.id.nav_LoaiSach) {
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
             pager.setAdapter(adapter);
             pager.setCurrentItem(1);
         }
-        if (id == R.id.quanlysach) {
+        if (id == R.id.nav_LoaiSach) {
             PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
             pager.setAdapter(adapter);
             pager.setCurrentItem(2);

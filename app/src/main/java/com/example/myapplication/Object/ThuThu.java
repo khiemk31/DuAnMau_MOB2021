@@ -1,16 +1,16 @@
 package com.example.myapplication.Object;
 
-public class NguoiDung {
+public class ThuThu {
     private int id;
     private String userName;
     private String password;
     private String phone;
     private String hoTen;
 
-    public NguoiDung() {
+    public ThuThu() {
     }
 
-    public NguoiDung(int id, String userName, String password, String phone, String hoTen) {
+    public ThuThu(int id, String userName, String password, String phone, String hoTen) {
         this.id = id;
         this.userName = userName;
         this.password = password;

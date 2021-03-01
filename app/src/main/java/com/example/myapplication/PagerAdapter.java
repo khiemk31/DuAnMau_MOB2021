@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.myapplication.Fragment.NguoiDung_Fragment;
-import com.example.myapplication.Fragment.HomeFragment;
-import com.example.myapplication.Fragment.SlideshowFragment;
+import com.example.myapplication.Fragment.LoaiSach_Fragment;
+import com.example.myapplication.Fragment.PhieuMuon_Fragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(@NonNull FragmentManager fm) {
@@ -20,13 +20,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new PhieuMuon_Fragment();
                 break;
             case 1:
                 fragment = new NguoiDung_Fragment();
                 break;
             case 2:
-                fragment = new SlideshowFragment();
+                fragment = new LoaiSach_Fragment();
                 break;
         }
         return fragment;

@@ -20,6 +20,5 @@ public class ManHinhChao extends AppCompatActivity {
                 finish();
             }
         }, 2000);
-        Log.e("Chạy Đến","Màn HìnH Chào");
     }
     }

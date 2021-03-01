@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/quanlyphieumuon"
+            android:id="@+id/nav_PhieuMuon"
             android:icon="@drawable/ic_action_copy"
             android:title="@string/QuanLyPhieuMuon" />
         <item
-            android:id="@+id/quanlyloaisach"
+            android:id="@+id/nav_LoaiSach"
             android:icon="@drawable/ic_action_database"
             android:title="@string/QuanLyLoaiSach" />
         <item
-            android:id="@+id/quanlysach"
+            android:id="@+id/nav_Sach"
             android:icon="@drawable/ic_action_book"
             android:title="@string/QuanLySach" />
         <item
-            android:id="@+id/quanlythanhvien"
+            android:id="@+id/nav_ThanhVien"
             android:icon="@drawable/ic_action_users"
             android:title="@string/QuanLyThanhVien" />
     </group>
@@ -27,11 +27,11 @@
             android:icon="@drawable/ic_action_line_chart">
             <menu>
                 <item
-                    android:id="@+id/sachmuonnhieunhat"
+                    android:id="@+id/nav_MuonNhieuNhat"
                     android:icon="@drawable/ic_action_like"
                     android:title="@string/SachMuonNhieuNhat" />
                 <item
-                    android:id="@+id/doanhthu"
+                    android:id="@+id/nav_DoanhThu"
                     android:icon="@drawable/ic_action_bargraph"
                     android:title="@string/DoanhThu" />
             </menu>
@@ -43,11 +43,11 @@
             android:title="Người Dùng">
             <menu>
                 <item
-                    android:id="@+id/doimatkhau"
+                    android:id="@+id/nav_MatKhau"
                     android:icon="@drawable/ic_action_key"
                     android:title="@string/DoiMatKhau" />
                 <item
-                    android:id="@+id/dangxuat"
+                    android:id="@+id/nav_DangXuat"
                     android:icon="@drawable/ic_action_exit"
                     android:title="@string/DangXuat" />
             </menu>

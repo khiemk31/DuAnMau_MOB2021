@@ -7,26 +7,26 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.myapplication.Database.MySQL;
-import com.example.myapplication.Object.NguoiDung;
+import com.example.myapplication.Object.ThuThu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NguoiDung_DAO {
+public class ThuThu_DAO {
     private SQLiteDatabase db;
     private MySQL mySQL;
-    public static final String TABLE_NAME = "NguoiDung";
-    public static final String SQL_NGUOI_DUNG = "CREATE TABLE NguoiDung ( username text primary key, password text, phone text, hoten nvarchar) ";
+    public static final String TABLE_NAME = "ThuThu";
+    public static final String SQL_NGUOI_DUNG = "CREATE TABLE ThuThu ( username text primary key, password text, phone text, hoten nvarchar) ";
 
-    public static final String TAG = "NguoiDung_DAO";
+    public static final String TAG = "ThuThu_DAO";
 
-    public NguoiDung_DAO(Context context){
+    public ThuThu_DAO(Context context){
         mySQL = new MySQL(context);
         db = mySQL.getWritableDatabase();
     }
 
     //insert
-    public int inserNguoiDung(NguoiDung nd) {
+    public int inserNguoiDung(ThuThu nd) {
         ContentValues values = new ContentValues();
         values.put("username", nd.getUserName());
         values.put("password", nd.getPassword());
@@ -43,26 +43,26 @@ public class NguoiDung_DAO {
     }
 
     //getAll
-    public List<NguoiDung> getAllNguoiDung() {
-        List<NguoiDung> dsNguoiDung = new ArrayList<>();
+    public List<ThuThu> getAllNguoiDung() {
+        List<ThuThu> dsThuThu = new ArrayList<>();
         Cursor c = db.query(TABLE_NAME, null, null, null, null, null, null);
         c.moveToFirst();
         while (c.isAfterLast() == false) {
-            NguoiDung ee = new NguoiDung();
+            ThuThu ee = new ThuThu();
             ee.setUserName(c.getString(0));
             ee.setPassword(c.getString(1));
             ee.setPhone(c.getString(2));
             ee.setHoTen(c.getString(3));
-            dsNguoiDung.add(ee);
+            dsThuThu.add(ee);
             Log.d("//=====", ee.toString());
             c.moveToNext();
         }
         c.close();
-        return dsNguoiDung;
+        return dsThuThu;
     }
 
     //update
-    public int updateNguoiDung(NguoiDung nd) {
+    public int updateNguoiDung(ThuThu nd) {
         ContentValues values = new ContentValues();
         values.put("username", nd.getUserName());
         values.put("password", nd.getPassword());
@@ -76,7 +76,7 @@ public class NguoiDung_DAO {
         return 1;
     }
 
-    public int changePasswordNguoiDung(NguoiDung nd) {
+    public int changePasswordNguoiDung(ThuThu nd) {
         ContentValues values = new ContentValues();
         values.put("username", nd.getUserName());
         values.put("password", nd.getPassword());
